@@ -73,16 +73,6 @@ int main(int argc, char **argv)
     // Main loop
     while(appletMainLoop())
     {
-        //Scan all the inputs. This should be done once for each frame
-        hidScanInput();
-
-        u64 kDown = 0;
-
-        for (int controller = 0; controller < 10; controller++) {
-            // hidKeysDown returns information about which buttons have been just pressed (and they weren't in the previous frame)
-            kDown |= hidKeysDown((HidControllerID) controller);
-        }
-
         if (can_reboot) {
             reboot_to_payload();
         }
